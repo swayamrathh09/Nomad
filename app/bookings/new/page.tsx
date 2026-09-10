@@ -5,6 +5,8 @@ import { createBooking } from "./actions";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
+export const dynamic = "force-dynamic";
+
 export default async function NewBookingPage({
   searchParams,
 }: {

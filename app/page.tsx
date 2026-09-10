@@ -6,6 +6,8 @@ import Footer from "@/app/components/Footer";
 import SearchBar from "@/app/components/SearchBar";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const REGIONS = [
   { name: "The Himalayan North", tagline: "Ladakh, Himachal, Uttarakhand", img: "/images/regions/himalaya.jpg" },
   { name: "The Western Coast", tagline: "Goa, Maharashtra, Konkan shoreline", img: "/images/regions/goa.jpg" },

@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
+export const dynamic = "force-dynamic";
+
 const TIER_ORDER = { BUDGET: 0, STANDARD: 1, PREMIUM: 2 };
 const TIER_COLOR: Record<string, string> = {
   BUDGET: "bg-[#F5F1E8] text-charcoal",

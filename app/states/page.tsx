@@ -3,6 +3,8 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import StateMapClient from "@/app/states/StateMapClient";
 
+export const dynamic = "force-dynamic";
+
 export default function StatesPage() {
   return (
     <>

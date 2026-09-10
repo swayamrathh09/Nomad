@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
+export const dynamic = "force-dynamic";
+
 export default async function DistrictsPage() {
   const odisha = await prisma.state.findUniqueOrThrow({
     where: { name: "Odisha" },
