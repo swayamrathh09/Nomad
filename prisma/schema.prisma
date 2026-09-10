@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- ENUMS ----------
+
+enum PackageTier {
+  BUDGET
+  STANDARD
+  PREMIUM
+}
+
+enum BookingType {
+  PACKAGE
+  CUSTOM
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  FAILED
+}
+
+// ---------- CORE LOCATION MODELS ----------
+
+model State {
+  id           String     @id @default(cuid())
+  name         String     @unique
+  isSelectable Boolean    @default(false)
+  districts    District[]
+
+  createdAt DateTime @default(now())
+}
+
+model District {
+  id           String  @id @default(cuid())
+  name         String
+  displayName  String?
+  isSelectable Boolean @default(false)
+  description  String?
+
+  state   State  @relation(fields: [stateId], references: [id])
+  stateId String
+
+  stops    Stop[]
+  packages Package[]
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+
+  @@unique([stateId, name])
+}
+
+model Stop {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  imageUrl    String?
+  costPaise   Int     @default(0)
+
+  district   District @relation(fields: [districtId], references: [id])
+  districtId String
+
+  packageStops PackageStop[]
+  bookingStops BookingStop[]
+
+  createdAt DateTime @default(now())
+    @@unique([districtId, name])
+}
+
+// ---------- PACKAGES ----------
+
+model Package {
+  id          String      @id @default(cuid())
+  name        String
+  tier        PackageTier
+  days        Int
+    description        String?
+    hotelCostPaise     Int     @default(0)
+  transportCostPaise Int     @default(0)
+  pricePaise         Int     @default(0)
+  roadDistanceKm     Int     @default(0)
+
+  district   District @relation(fields: [districtId], references: [id])
+  districtId String
+
+  packageStops PackageStop[]
+  bookings     Booking[]
+
+  createdAt DateTime @default(now())
+    @@unique([districtId, name])
+}
+
+model PackageStop {
+  id        String @id @default(cuid())
+  dayNumber Int
+  order     Int    @default(0)
+
+  package   Package @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  packageId String
+
+  stop   Stop   @relation(fields: [stopId], references: [id])
+  stopId String
+
+  @@unique([packageId, stopId, dayNumber])
+}
+
+// ---------- USERS ----------
+
+model User {
+  id    String  @id
+  email String  @unique
+  name  String?
+
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+}
+
+// ---------- BOOKINGS ----------
+
+model Booking {
+  id   String      @id @default(cuid())
+  type BookingType
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  district   District @relation(fields: [districtId], references: [id])
+  districtId String
+
+  package   Package? @relation(fields: [packageId], references: [id])
+  packageId String?
+
+  days          Int
+  arrivalDate   DateTime
+  departureDate DateTime
+
+    travelers               Int     @default(2)
+  rooms                   Int     @default(1)
+  originCity              String?
+  vehicleType             String  @default("SEDAN")
+  transportPaisePerPerson Int     @default(0)
+  driverCostPaise         Int     @default(0)
+  tollFoodingIncluded     Boolean @default(false)
+
+  totalCostPaise Int
+  status         BookingStatus @default(PENDING)
+
+  razorpayOrderId   String?
+  razorpayPaymentId String?
+
+  bookingStops BookingStop[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BookingStop {
+  id        String @id @default(cuid())
+  dayNumber Int
+  order     Int    @default(0)
+
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  bookingId String
+
+  stop   Stop   @relation(fields: [stopId], references: [id])
+  stopId String
+
+  @@unique([bookingId, stopId, dayNumber])
+}

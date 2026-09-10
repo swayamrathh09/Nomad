@@ -1,0 +1,11 @@
+-- AlterTable
+ALTER TABLE "Booking" ADD COLUMN     "driverCostPaise" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "originCity" TEXT,
+ADD COLUMN     "rooms" INTEGER NOT NULL DEFAULT 1,
+ADD COLUMN     "tollFoodingIncluded" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "transportPaisePerPerson" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "travelers" INTEGER NOT NULL DEFAULT 2,
+ADD COLUMN     "vehicleType" TEXT NOT NULL DEFAULT 'SEDAN';
+
+-- AlterTable
+ALTER TABLE "Package" ADD COLUMN     "roadDistanceKm" INTEGER NOT NULL DEFAULT 0;
