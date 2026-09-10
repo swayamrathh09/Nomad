@@ -32,6 +32,7 @@ export type BookingAvgAggregateOutputType = {
   rooms: number | null
   transportPaisePerPerson: number | null
   driverCostPaise: number | null
+  actualRoadDistanceKm: number | null
   totalCostPaise: number | null
 }
 
@@ -41,6 +42,7 @@ export type BookingSumAggregateOutputType = {
   rooms: number | null
   transportPaisePerPerson: number | null
   driverCostPaise: number | null
+  actualRoadDistanceKm: number | null
   totalCostPaise: number | null
 }
 
@@ -59,6 +61,7 @@ export type BookingMinAggregateOutputType = {
   vehicleType: string | null
   transportPaisePerPerson: number | null
   driverCostPaise: number | null
+  actualRoadDistanceKm: number | null
   tollFoodingIncluded: boolean | null
   totalCostPaise: number | null
   status: $Enums.BookingStatus | null
@@ -83,6 +86,7 @@ export type BookingMaxAggregateOutputType = {
   vehicleType: string | null
   transportPaisePerPerson: number | null
   driverCostPaise: number | null
+  actualRoadDistanceKm: number | null
   tollFoodingIncluded: boolean | null
   totalCostPaise: number | null
   status: $Enums.BookingStatus | null
@@ -107,6 +111,7 @@ export type BookingCountAggregateOutputType = {
   vehicleType: number
   transportPaisePerPerson: number
   driverCostPaise: number
+  actualRoadDistanceKm: number
   tollFoodingIncluded: number
   totalCostPaise: number
   status: number
@@ -124,6 +129,7 @@ export type BookingAvgAggregateInputType = {
   rooms?: true
   transportPaisePerPerson?: true
   driverCostPaise?: true
+  actualRoadDistanceKm?: true
   totalCostPaise?: true
 }
 
@@ -133,6 +139,7 @@ export type BookingSumAggregateInputType = {
   rooms?: true
   transportPaisePerPerson?: true
   driverCostPaise?: true
+  actualRoadDistanceKm?: true
   totalCostPaise?: true
 }
 
@@ -151,6 +158,7 @@ export type BookingMinAggregateInputType = {
   vehicleType?: true
   transportPaisePerPerson?: true
   driverCostPaise?: true
+  actualRoadDistanceKm?: true
   tollFoodingIncluded?: true
   totalCostPaise?: true
   status?: true
@@ -175,6 +183,7 @@ export type BookingMaxAggregateInputType = {
   vehicleType?: true
   transportPaisePerPerson?: true
   driverCostPaise?: true
+  actualRoadDistanceKm?: true
   tollFoodingIncluded?: true
   totalCostPaise?: true
   status?: true
@@ -199,6 +208,7 @@ export type BookingCountAggregateInputType = {
   vehicleType?: true
   transportPaisePerPerson?: true
   driverCostPaise?: true
+  actualRoadDistanceKm?: true
   tollFoodingIncluded?: true
   totalCostPaise?: true
   status?: true
@@ -310,6 +320,7 @@ export type BookingGroupByOutputType = {
   vehicleType: string
   transportPaisePerPerson: number
   driverCostPaise: number
+  actualRoadDistanceKm: number
   tollFoodingIncluded: boolean
   totalCostPaise: number
   status: $Enums.BookingStatus
@@ -357,6 +368,7 @@ export type BookingWhereInput = {
   vehicleType?: Prisma.StringFilter<"Booking"> | string
   transportPaisePerPerson?: Prisma.IntFilter<"Booking"> | number
   driverCostPaise?: Prisma.IntFilter<"Booking"> | number
+  actualRoadDistanceKm?: Prisma.IntFilter<"Booking"> | number
   tollFoodingIncluded?: Prisma.BoolFilter<"Booking"> | boolean
   totalCostPaise?: Prisma.IntFilter<"Booking"> | number
   status?: Prisma.EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
@@ -385,6 +397,7 @@ export type BookingOrderByWithRelationInput = {
   vehicleType?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   tollFoodingIncluded?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -416,6 +429,7 @@ export type BookingWhereUniqueInput = Prisma.AtLeast<{
   vehicleType?: Prisma.StringFilter<"Booking"> | string
   transportPaisePerPerson?: Prisma.IntFilter<"Booking"> | number
   driverCostPaise?: Prisma.IntFilter<"Booking"> | number
+  actualRoadDistanceKm?: Prisma.IntFilter<"Booking"> | number
   tollFoodingIncluded?: Prisma.BoolFilter<"Booking"> | boolean
   totalCostPaise?: Prisma.IntFilter<"Booking"> | number
   status?: Prisma.EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
@@ -444,6 +458,7 @@ export type BookingOrderByWithAggregationInput = {
   vehicleType?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   tollFoodingIncluded?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -476,6 +491,7 @@ export type BookingScalarWhereWithAggregatesInput = {
   vehicleType?: Prisma.StringWithAggregatesFilter<"Booking"> | string
   transportPaisePerPerson?: Prisma.IntWithAggregatesFilter<"Booking"> | number
   driverCostPaise?: Prisma.IntWithAggregatesFilter<"Booking"> | number
+  actualRoadDistanceKm?: Prisma.IntWithAggregatesFilter<"Booking"> | number
   tollFoodingIncluded?: Prisma.BoolWithAggregatesFilter<"Booking"> | boolean
   totalCostPaise?: Prisma.IntWithAggregatesFilter<"Booking"> | number
   status?: Prisma.EnumBookingStatusWithAggregatesFilter<"Booking"> | $Enums.BookingStatus
@@ -497,6 +513,7 @@ export type BookingCreateInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -525,6 +542,7 @@ export type BookingUncheckedCreateInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -547,6 +565,7 @@ export type BookingUpdateInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -575,6 +594,7 @@ export type BookingUncheckedUpdateInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -600,6 +620,7 @@ export type BookingCreateManyInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -621,6 +642,7 @@ export type BookingUpdateManyMutationInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -645,6 +667,7 @@ export type BookingUncheckedUpdateManyInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -679,6 +702,7 @@ export type BookingCountOrderByAggregateInput = {
   vehicleType?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   tollFoodingIncluded?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -694,6 +718,7 @@ export type BookingAvgOrderByAggregateInput = {
   rooms?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
 }
 
@@ -712,6 +737,7 @@ export type BookingMaxOrderByAggregateInput = {
   vehicleType?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   tollFoodingIncluded?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -736,6 +762,7 @@ export type BookingMinOrderByAggregateInput = {
   vehicleType?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   tollFoodingIncluded?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -751,6 +778,7 @@ export type BookingSumOrderByAggregateInput = {
   rooms?: Prisma.SortOrder
   transportPaisePerPerson?: Prisma.SortOrder
   driverCostPaise?: Prisma.SortOrder
+  actualRoadDistanceKm?: Prisma.SortOrder
   totalCostPaise?: Prisma.SortOrder
 }
 
@@ -919,6 +947,7 @@ export type BookingCreateWithoutDistrictInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -945,6 +974,7 @@ export type BookingUncheckedCreateWithoutDistrictInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -999,6 +1029,7 @@ export type BookingScalarWhereInput = {
   vehicleType?: Prisma.StringFilter<"Booking"> | string
   transportPaisePerPerson?: Prisma.IntFilter<"Booking"> | number
   driverCostPaise?: Prisma.IntFilter<"Booking"> | number
+  actualRoadDistanceKm?: Prisma.IntFilter<"Booking"> | number
   tollFoodingIncluded?: Prisma.BoolFilter<"Booking"> | boolean
   totalCostPaise?: Prisma.IntFilter<"Booking"> | number
   status?: Prisma.EnumBookingStatusFilter<"Booking"> | $Enums.BookingStatus
@@ -1020,6 +1051,7 @@ export type BookingCreateWithoutPackageInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1046,6 +1078,7 @@ export type BookingUncheckedCreateWithoutPackageInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1094,6 +1127,7 @@ export type BookingCreateWithoutUserInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1120,6 +1154,7 @@ export type BookingUncheckedCreateWithoutUserInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1168,6 +1203,7 @@ export type BookingCreateWithoutBookingStopsInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1195,6 +1231,7 @@ export type BookingUncheckedCreateWithoutBookingStopsInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1232,6 +1269,7 @@ export type BookingUpdateWithoutBookingStopsInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1259,6 +1297,7 @@ export type BookingUncheckedUpdateWithoutBookingStopsInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1282,6 +1321,7 @@ export type BookingCreateManyDistrictInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1303,6 +1343,7 @@ export type BookingUpdateWithoutDistrictInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1329,6 +1370,7 @@ export type BookingUncheckedUpdateWithoutDistrictInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1353,6 +1395,7 @@ export type BookingUncheckedUpdateManyWithoutDistrictInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1376,6 +1419,7 @@ export type BookingCreateManyPackageInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1397,6 +1441,7 @@ export type BookingUpdateWithoutPackageInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1423,6 +1468,7 @@ export type BookingUncheckedUpdateWithoutPackageInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1447,6 +1493,7 @@ export type BookingUncheckedUpdateManyWithoutPackageInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1470,6 +1517,7 @@ export type BookingCreateManyUserInput = {
   vehicleType?: string
   transportPaisePerPerson?: number
   driverCostPaise?: number
+  actualRoadDistanceKm?: number
   tollFoodingIncluded?: boolean
   totalCostPaise: number
   status?: $Enums.BookingStatus
@@ -1491,6 +1539,7 @@ export type BookingUpdateWithoutUserInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1517,6 +1566,7 @@ export type BookingUncheckedUpdateWithoutUserInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1541,6 +1591,7 @@ export type BookingUncheckedUpdateManyWithoutUserInput = {
   vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
   transportPaisePerPerson?: Prisma.IntFieldUpdateOperationsInput | number
   driverCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  actualRoadDistanceKm?: Prisma.IntFieldUpdateOperationsInput | number
   tollFoodingIncluded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   totalCostPaise?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumBookingStatusFieldUpdateOperationsInput | $Enums.BookingStatus
@@ -1596,6 +1647,7 @@ export type BookingSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   vehicleType?: boolean
   transportPaisePerPerson?: boolean
   driverCostPaise?: boolean
+  actualRoadDistanceKm?: boolean
   tollFoodingIncluded?: boolean
   totalCostPaise?: boolean
   status?: boolean
@@ -1625,6 +1677,7 @@ export type BookingSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   vehicleType?: boolean
   transportPaisePerPerson?: boolean
   driverCostPaise?: boolean
+  actualRoadDistanceKm?: boolean
   tollFoodingIncluded?: boolean
   totalCostPaise?: boolean
   status?: boolean
@@ -1652,6 +1705,7 @@ export type BookingSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   vehicleType?: boolean
   transportPaisePerPerson?: boolean
   driverCostPaise?: boolean
+  actualRoadDistanceKm?: boolean
   tollFoodingIncluded?: boolean
   totalCostPaise?: boolean
   status?: boolean
@@ -1679,6 +1733,7 @@ export type BookingSelectScalar = {
   vehicleType?: boolean
   transportPaisePerPerson?: boolean
   driverCostPaise?: boolean
+  actualRoadDistanceKm?: boolean
   tollFoodingIncluded?: boolean
   totalCostPaise?: boolean
   status?: boolean
@@ -1688,7 +1743,7 @@ export type BookingSelectScalar = {
   updatedAt?: boolean
 }
 
-export type BookingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "userId" | "districtId" | "packageId" | "days" | "arrivalDate" | "departureDate" | "travelers" | "rooms" | "originCity" | "vehicleType" | "transportPaisePerPerson" | "driverCostPaise" | "tollFoodingIncluded" | "totalCostPaise" | "status" | "razorpayOrderId" | "razorpayPaymentId" | "createdAt" | "updatedAt", ExtArgs["result"]["booking"]>
+export type BookingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "userId" | "districtId" | "packageId" | "days" | "arrivalDate" | "departureDate" | "travelers" | "rooms" | "originCity" | "vehicleType" | "transportPaisePerPerson" | "driverCostPaise" | "actualRoadDistanceKm" | "tollFoodingIncluded" | "totalCostPaise" | "status" | "razorpayOrderId" | "razorpayPaymentId" | "createdAt" | "updatedAt", ExtArgs["result"]["booking"]>
 export type BookingInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   district?: boolean | Prisma.DistrictDefaultArgs<ExtArgs>
@@ -1730,6 +1785,7 @@ export type $BookingPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     vehicleType: string
     transportPaisePerPerson: number
     driverCostPaise: number
+    actualRoadDistanceKm: number
     tollFoodingIncluded: boolean
     totalCostPaise: number
     status: $Enums.BookingStatus
@@ -2178,6 +2234,7 @@ export interface BookingFieldRefs {
   readonly vehicleType: Prisma.FieldRef<"Booking", 'String'>
   readonly transportPaisePerPerson: Prisma.FieldRef<"Booking", 'Int'>
   readonly driverCostPaise: Prisma.FieldRef<"Booking", 'Int'>
+  readonly actualRoadDistanceKm: Prisma.FieldRef<"Booking", 'Int'>
   readonly tollFoodingIncluded: Prisma.FieldRef<"Booking", 'Boolean'>
   readonly totalCostPaise: Prisma.FieldRef<"Booking", 'Int'>
   readonly status: Prisma.FieldRef<"Booking", 'BookingStatus'>

@@ -28,10 +28,14 @@ export type AggregateStop = {
 
 export type StopAvgAggregateOutputType = {
   costPaise: number | null
+  latitude: number | null
+  longitude: number | null
 }
 
 export type StopSumAggregateOutputType = {
   costPaise: number | null
+  latitude: number | null
+  longitude: number | null
 }
 
 export type StopMinAggregateOutputType = {
@@ -40,6 +44,8 @@ export type StopMinAggregateOutputType = {
   description: string | null
   imageUrl: string | null
   costPaise: number | null
+  latitude: number | null
+  longitude: number | null
   districtId: string | null
   createdAt: Date | null
 }
@@ -50,6 +56,8 @@ export type StopMaxAggregateOutputType = {
   description: string | null
   imageUrl: string | null
   costPaise: number | null
+  latitude: number | null
+  longitude: number | null
   districtId: string | null
   createdAt: Date | null
 }
@@ -60,6 +68,8 @@ export type StopCountAggregateOutputType = {
   description: number
   imageUrl: number
   costPaise: number
+  latitude: number
+  longitude: number
   districtId: number
   createdAt: number
   _all: number
@@ -68,10 +78,14 @@ export type StopCountAggregateOutputType = {
 
 export type StopAvgAggregateInputType = {
   costPaise?: true
+  latitude?: true
+  longitude?: true
 }
 
 export type StopSumAggregateInputType = {
   costPaise?: true
+  latitude?: true
+  longitude?: true
 }
 
 export type StopMinAggregateInputType = {
@@ -80,6 +94,8 @@ export type StopMinAggregateInputType = {
   description?: true
   imageUrl?: true
   costPaise?: true
+  latitude?: true
+  longitude?: true
   districtId?: true
   createdAt?: true
 }
@@ -90,6 +106,8 @@ export type StopMaxAggregateInputType = {
   description?: true
   imageUrl?: true
   costPaise?: true
+  latitude?: true
+  longitude?: true
   districtId?: true
   createdAt?: true
 }
@@ -100,6 +118,8 @@ export type StopCountAggregateInputType = {
   description?: true
   imageUrl?: true
   costPaise?: true
+  latitude?: true
+  longitude?: true
   districtId?: true
   createdAt?: true
   _all?: true
@@ -197,6 +217,8 @@ export type StopGroupByOutputType = {
   description: string | null
   imageUrl: string | null
   costPaise: number
+  latitude: number | null
+  longitude: number | null
   districtId: string
   createdAt: Date
   _count: StopCountAggregateOutputType | null
@@ -230,6 +252,8 @@ export type StopWhereInput = {
   description?: Prisma.StringNullableFilter<"Stop"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Stop"> | string | null
   costPaise?: Prisma.IntFilter<"Stop"> | number
+  latitude?: Prisma.FloatNullableFilter<"Stop"> | number | null
+  longitude?: Prisma.FloatNullableFilter<"Stop"> | number | null
   districtId?: Prisma.StringFilter<"Stop"> | string
   createdAt?: Prisma.DateTimeFilter<"Stop"> | Date | string
   district?: Prisma.XOR<Prisma.DistrictScalarRelationFilter, Prisma.DistrictWhereInput>
@@ -243,6 +267,8 @@ export type StopOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrderInput | Prisma.SortOrder
+  longitude?: Prisma.SortOrderInput | Prisma.SortOrder
   districtId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   district?: Prisma.DistrictOrderByWithRelationInput
@@ -260,6 +286,8 @@ export type StopWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringNullableFilter<"Stop"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Stop"> | string | null
   costPaise?: Prisma.IntFilter<"Stop"> | number
+  latitude?: Prisma.FloatNullableFilter<"Stop"> | number | null
+  longitude?: Prisma.FloatNullableFilter<"Stop"> | number | null
   districtId?: Prisma.StringFilter<"Stop"> | string
   createdAt?: Prisma.DateTimeFilter<"Stop"> | Date | string
   district?: Prisma.XOR<Prisma.DistrictScalarRelationFilter, Prisma.DistrictWhereInput>
@@ -273,6 +301,8 @@ export type StopOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrderInput | Prisma.SortOrder
+  longitude?: Prisma.SortOrderInput | Prisma.SortOrder
   districtId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.StopCountOrderByAggregateInput
@@ -291,6 +321,8 @@ export type StopScalarWhereWithAggregatesInput = {
   description?: Prisma.StringNullableWithAggregatesFilter<"Stop"> | string | null
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Stop"> | string | null
   costPaise?: Prisma.IntWithAggregatesFilter<"Stop"> | number
+  latitude?: Prisma.FloatNullableWithAggregatesFilter<"Stop"> | number | null
+  longitude?: Prisma.FloatNullableWithAggregatesFilter<"Stop"> | number | null
   districtId?: Prisma.StringWithAggregatesFilter<"Stop"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Stop"> | Date | string
 }
@@ -301,6 +333,8 @@ export type StopCreateInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   createdAt?: Date | string
   district: Prisma.DistrictCreateNestedOneWithoutStopsInput
   packageStops?: Prisma.PackageStopCreateNestedManyWithoutStopInput
@@ -313,6 +347,8 @@ export type StopUncheckedCreateInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   districtId: string
   createdAt?: Date | string
   packageStops?: Prisma.PackageStopUncheckedCreateNestedManyWithoutStopInput
@@ -325,6 +361,8 @@ export type StopUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   district?: Prisma.DistrictUpdateOneRequiredWithoutStopsNestedInput
   packageStops?: Prisma.PackageStopUpdateManyWithoutStopNestedInput
@@ -337,6 +375,8 @@ export type StopUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   districtId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packageStops?: Prisma.PackageStopUncheckedUpdateManyWithoutStopNestedInput
@@ -349,6 +389,8 @@ export type StopCreateManyInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   districtId: string
   createdAt?: Date | string
 }
@@ -359,6 +401,8 @@ export type StopUpdateManyMutationInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -368,6 +412,8 @@ export type StopUncheckedUpdateManyInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   districtId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -393,12 +439,16 @@ export type StopCountOrderByAggregateInput = {
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   districtId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type StopAvgOrderByAggregateInput = {
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
 }
 
 export type StopMaxOrderByAggregateInput = {
@@ -407,6 +457,8 @@ export type StopMaxOrderByAggregateInput = {
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   districtId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -417,12 +469,16 @@ export type StopMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
   districtId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type StopSumOrderByAggregateInput = {
   costPaise?: Prisma.SortOrder
+  latitude?: Prisma.SortOrder
+  longitude?: Prisma.SortOrder
 }
 
 export type StopScalarRelationFilter = {
@@ -480,6 +536,14 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type NullableFloatFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type StopCreateNestedOneWithoutPackageStopsInput = {
   create?: Prisma.XOR<Prisma.StopCreateWithoutPackageStopsInput, Prisma.StopUncheckedCreateWithoutPackageStopsInput>
   connectOrCreate?: Prisma.StopCreateOrConnectWithoutPackageStopsInput
@@ -514,6 +578,8 @@ export type StopCreateWithoutDistrictInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   createdAt?: Date | string
   packageStops?: Prisma.PackageStopCreateNestedManyWithoutStopInput
   bookingStops?: Prisma.BookingStopCreateNestedManyWithoutStopInput
@@ -525,6 +591,8 @@ export type StopUncheckedCreateWithoutDistrictInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   createdAt?: Date | string
   packageStops?: Prisma.PackageStopUncheckedCreateNestedManyWithoutStopInput
   bookingStops?: Prisma.BookingStopUncheckedCreateNestedManyWithoutStopInput
@@ -565,6 +633,8 @@ export type StopScalarWhereInput = {
   description?: Prisma.StringNullableFilter<"Stop"> | string | null
   imageUrl?: Prisma.StringNullableFilter<"Stop"> | string | null
   costPaise?: Prisma.IntFilter<"Stop"> | number
+  latitude?: Prisma.FloatNullableFilter<"Stop"> | number | null
+  longitude?: Prisma.FloatNullableFilter<"Stop"> | number | null
   districtId?: Prisma.StringFilter<"Stop"> | string
   createdAt?: Prisma.DateTimeFilter<"Stop"> | Date | string
 }
@@ -575,6 +645,8 @@ export type StopCreateWithoutPackageStopsInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   createdAt?: Date | string
   district: Prisma.DistrictCreateNestedOneWithoutStopsInput
   bookingStops?: Prisma.BookingStopCreateNestedManyWithoutStopInput
@@ -586,6 +658,8 @@ export type StopUncheckedCreateWithoutPackageStopsInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   districtId: string
   createdAt?: Date | string
   bookingStops?: Prisma.BookingStopUncheckedCreateNestedManyWithoutStopInput
@@ -613,6 +687,8 @@ export type StopUpdateWithoutPackageStopsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   district?: Prisma.DistrictUpdateOneRequiredWithoutStopsNestedInput
   bookingStops?: Prisma.BookingStopUpdateManyWithoutStopNestedInput
@@ -624,6 +700,8 @@ export type StopUncheckedUpdateWithoutPackageStopsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   districtId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   bookingStops?: Prisma.BookingStopUncheckedUpdateManyWithoutStopNestedInput
@@ -635,6 +713,8 @@ export type StopCreateWithoutBookingStopsInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   createdAt?: Date | string
   district: Prisma.DistrictCreateNestedOneWithoutStopsInput
   packageStops?: Prisma.PackageStopCreateNestedManyWithoutStopInput
@@ -646,6 +726,8 @@ export type StopUncheckedCreateWithoutBookingStopsInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   districtId: string
   createdAt?: Date | string
   packageStops?: Prisma.PackageStopUncheckedCreateNestedManyWithoutStopInput
@@ -673,6 +755,8 @@ export type StopUpdateWithoutBookingStopsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   district?: Prisma.DistrictUpdateOneRequiredWithoutStopsNestedInput
   packageStops?: Prisma.PackageStopUpdateManyWithoutStopNestedInput
@@ -684,6 +768,8 @@ export type StopUncheckedUpdateWithoutBookingStopsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   districtId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packageStops?: Prisma.PackageStopUncheckedUpdateManyWithoutStopNestedInput
@@ -695,6 +781,8 @@ export type StopCreateManyDistrictInput = {
   description?: string | null
   imageUrl?: string | null
   costPaise?: number
+  latitude?: number | null
+  longitude?: number | null
   createdAt?: Date | string
 }
 
@@ -704,6 +792,8 @@ export type StopUpdateWithoutDistrictInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packageStops?: Prisma.PackageStopUpdateManyWithoutStopNestedInput
   bookingStops?: Prisma.BookingStopUpdateManyWithoutStopNestedInput
@@ -715,6 +805,8 @@ export type StopUncheckedUpdateWithoutDistrictInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packageStops?: Prisma.PackageStopUncheckedUpdateManyWithoutStopNestedInput
   bookingStops?: Prisma.BookingStopUncheckedUpdateManyWithoutStopNestedInput
@@ -726,6 +818,8 @@ export type StopUncheckedUpdateManyWithoutDistrictInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costPaise?: Prisma.IntFieldUpdateOperationsInput | number
+  latitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  longitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -775,6 +869,8 @@ export type StopSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   description?: boolean
   imageUrl?: boolean
   costPaise?: boolean
+  latitude?: boolean
+  longitude?: boolean
   districtId?: boolean
   createdAt?: boolean
   district?: boolean | Prisma.DistrictDefaultArgs<ExtArgs>
@@ -789,6 +885,8 @@ export type StopSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   description?: boolean
   imageUrl?: boolean
   costPaise?: boolean
+  latitude?: boolean
+  longitude?: boolean
   districtId?: boolean
   createdAt?: boolean
   district?: boolean | Prisma.DistrictDefaultArgs<ExtArgs>
@@ -800,6 +898,8 @@ export type StopSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   description?: boolean
   imageUrl?: boolean
   costPaise?: boolean
+  latitude?: boolean
+  longitude?: boolean
   districtId?: boolean
   createdAt?: boolean
   district?: boolean | Prisma.DistrictDefaultArgs<ExtArgs>
@@ -811,11 +911,13 @@ export type StopSelectScalar = {
   description?: boolean
   imageUrl?: boolean
   costPaise?: boolean
+  latitude?: boolean
+  longitude?: boolean
   districtId?: boolean
   createdAt?: boolean
 }
 
-export type StopOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "imageUrl" | "costPaise" | "districtId" | "createdAt", ExtArgs["result"]["stop"]>
+export type StopOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "imageUrl" | "costPaise" | "latitude" | "longitude" | "districtId" | "createdAt", ExtArgs["result"]["stop"]>
 export type StopInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   district?: boolean | Prisma.DistrictDefaultArgs<ExtArgs>
   packageStops?: boolean | Prisma.Stop$packageStopsArgs<ExtArgs>
@@ -842,6 +944,8 @@ export type $StopPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     description: string | null
     imageUrl: string | null
     costPaise: number
+    latitude: number | null
+    longitude: number | null
     districtId: string
     createdAt: Date
   }, ExtArgs["result"]["stop"]>
@@ -1275,6 +1379,8 @@ export interface StopFieldRefs {
   readonly description: Prisma.FieldRef<"Stop", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Stop", 'String'>
   readonly costPaise: Prisma.FieldRef<"Stop", 'Int'>
+  readonly latitude: Prisma.FieldRef<"Stop", 'Float'>
+  readonly longitude: Prisma.FieldRef<"Stop", 'Float'>
   readonly districtId: Prisma.FieldRef<"Stop", 'String'>
   readonly createdAt: Prisma.FieldRef<"Stop", 'DateTime'>
 }

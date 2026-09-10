@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import AccountMenu from "@/app/components/AccountMenu";
+import SignInLink from "@/app/components/SignInLink";
 
 export default async function Header() {
   const supabase = await createClient();
@@ -23,20 +24,7 @@ export default async function Header() {
           <Link href="/states" className="hover:text-gold transition">
             Explore
           </Link>
-          {user ? (
-            <AccountMenu email={user.email ?? ""} />
-          ) : (
-            <Link
-              href="/login"
-              className="w-8 h-8 rounded-full bg-sandstone/10 hover:bg-gold hover:text-ink flex items-center justify-center transition"
-              aria-label="Log in"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
-              </svg>
-            </Link>
-          )}
+          {user ? <AccountMenu email={user.email ?? ""} /> : <SignInLink />}
         </nav>
       </div>
     </header>

@@ -106,6 +106,8 @@ export const StopScalarFieldEnum = {
   description: 'description',
   imageUrl: 'imageUrl',
   costPaise: 'costPaise',
+  latitude: 'latitude',
+  longitude: 'longitude',
   districtId: 'districtId',
   createdAt: 'createdAt'
 } as const
@@ -166,6 +168,7 @@ export const BookingScalarFieldEnum = {
   vehicleType: 'vehicleType',
   transportPaisePerPerson: 'transportPaisePerPerson',
   driverCostPaise: 'driverCostPaise',
+  actualRoadDistanceKm: 'actualRoadDistanceKm',
   tollFoodingIncluded: 'tollFoodingIncluded',
   totalCostPaise: 'totalCostPaise',
   status: 'status',

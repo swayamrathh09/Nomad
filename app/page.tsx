@@ -19,20 +19,28 @@ const REGIONS = [
 
 const TIER_ORDER: Record<string, number> = { BUDGET: 0, STANDARD: 1, PREMIUM: 2 };
 
+const DISTRICT_IMAGES: Record<string, string> = {
+  Puri: "/images/regions/puri.jpg",
+  Khordha: "/images/regions/bhubaneswar.jpg",
+  Cuttack: "/images/regions/cuttack.jpg",
+  Ganjam: "/images/regions/berhampur.jpg",
+  Koraput: "/images/regions/koraput.jpg",
+};
+
 export default async function Home() {
-  const puriPackages = await prisma.package.findMany({
-    where: { district: { name: "Puri" } },
-  });
-  puriPackages.sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier]);
-
-  const fromPrice = puriPackages.length
-    ? Math.min(...puriPackages.map((p) => p.pricePaise)) / 100
-    : null;
-
-    const openDistricts = await prisma.district.findMany({
+  const openDistricts = await prisma.district.findMany({
     where: { isSelectable: true },
     orderBy: { name: "asc" },
   });
+
+  const cheapestPackages = await Promise.all(
+    openDistricts.map(async (d) => {
+      const packages = await prisma.package.findMany({ where: { districtId: d.id } });
+      packages.sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier]);
+      return { district: d, cheapest: packages[0] ?? null };
+    })
+  );
+
   const openCities = openDistricts.map((d) => ({
     label: `${d.displayName || d.name}, Odisha`,
     districtId: d.id,
@@ -72,7 +80,7 @@ export default async function Home() {
           </div>
         </section>
 
-          <div className="px-6">
+        <div className="px-6">
           <SearchBar openCities={openCities} />
         </div>
 
@@ -91,49 +99,43 @@ export default async function Home() {
           ))}
         </section>
 
-        {/* REAL TRIPS */}
+        {/* REAL TRIPS — one card per live city */}
         <section id="trips" className="px-6 py-16 max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="text-gold text-sm font-medium mb-2">Live now</p>
-              <h2 className="text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
-                Puri, ready to book
-              </h2>
-            </div>
-            {fromPrice && (
-              <p className="text-charcoal/60 text-sm hidden md:block">
-                From ₹{fromPrice.toLocaleString("en-IN")} / person
-              </p>
-            )}
+          <div className="mb-10">
+            <p className="text-gold text-sm font-medium mb-2">Live now</p>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)" }}>
+              5 Odisha cities, ready to book
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {puriPackages.map((pkg) => (
-              <div key={pkg.id} className="border border-black/10 rounded-lg overflow-hidden">
-                <div className="relative h-44">
-                  <Image src="/images/regions/odisha.jpg" alt={pkg.name} fill className="object-cover" />
-                  <span className="absolute top-3 left-3 text-xs font-medium bg-white/90 text-charcoal px-2 py-1 rounded-full">
-                    {pkg.days} days · {pkg.tier}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-lg mb-1">{pkg.name}</h3>
-                  <p className="text-charcoal/60 text-sm mb-4">{pkg.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-charcoal/50">From</p>
-                      <p className="font-bold">₹{(pkg.pricePaise / 100).toLocaleString("en-IN")}</p>
+            {cheapestPackages.map(({ district, cheapest }) => {
+              if (!cheapest) return null;
+              const img = DISTRICT_IMAGES[district.name] || "/images/regions/odisha.jpg";
+              return (
+                <div key={district.id} className="border border-black/10 rounded-lg overflow-hidden">
+                  <div className="relative h-44">
+                    <Image src={img} alt={district.displayName || district.name} fill className="object-cover" />
+                    <span className="absolute top-3 left-3 text-xs font-medium bg-white/90 text-charcoal px-2 py-1 rounded-full">
+                      3 packages
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-semibold text-lg mb-1">{district.displayName || district.name}</h3>
+                    <p className="text-charcoal/60 text-sm mb-4">Starting from</p>
+                    <div className="flex items-center justify-between">
+                      <p className="font-bold">₹{(cheapest.pricePaise / 100).toLocaleString("en-IN")}</p>
+                      <Link
+                        href={`/districts/${district.id}/packages`}
+                        className="bg-ink text-sandstone text-sm font-medium px-4 py-2 rounded-md hover:bg-ink/90 transition"
+                      >
+                        View & book
+                      </Link>
                     </div>
-                    <Link
-                      href={`/districts/${pkg.districtId}/packages`}
-                      className="bg-ink text-sandstone text-sm font-medium px-4 py-2 rounded-md hover:bg-ink/90 transition"
-                    >
-                      View & book
-                    </Link>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

@@ -45,7 +45,6 @@ export default async function BookingPage({
   const entriesCostPaise = pkg ? pkg.pricePaise - pkg.hotelCostPaise - pkg.transportCostPaise : 0;
   const hotelCostScaled = pkg ? pkg.hotelCostPaise * booking.rooms : 0;
   const localTransportPaise = pkg ? pkg.transportCostPaise : 0;
-  const longDistanceTransportPaise = booking.transportPaisePerPerson * booking.travelers * 2;
 
   return (
     <>
@@ -59,7 +58,7 @@ export default async function BookingPage({
             <p className="text-sandstone/70 text-sm mt-1">
               {new Date(booking.arrivalDate).toLocaleDateString("en-IN")} —{" "}
               {new Date(booking.departureDate).toLocaleDateString("en-IN")} · {booking.days} days ·{" "}
-              {booking.travelers} travelers
+              {booking.travelers} travelers · Pickup: {booking.originCity}
             </p>
           </div>
 
@@ -111,8 +110,8 @@ export default async function BookingPage({
                 <span>₹{(entriesCostPaise / 100).toLocaleString("en-IN")}</span>
               </div>
               <div className="flex justify-between">
-                <span>Travel from {booking.originCity} (onward + return)</span>
-                <span>₹{(longDistanceTransportPaise / 100).toLocaleString("en-IN")}</span>
+                <span>Pickup to drop ({booking.vehicleType.toLowerCase()}, {booking.actualRoadDistanceKm} km)</span>
+                <span>₹{(booking.driverCostPaise / 100).toLocaleString("en-IN")}</span>
               </div>
             </div>
             <div className="border-t border-black/10 pt-3 flex justify-between items-center">

@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { createBooking } from "./actions";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import LocationAutocomplete from "@/app/components/LocationAutocomplete";
 
 export const dynamic = "force-dynamic";
 
@@ -68,6 +69,13 @@ export default async function NewBookingPage({
               />
             </div>
 
+                        <div>
+              <label htmlFor="pickupPoint" className="block text-sm font-medium mb-1">
+                Pickup point
+              </label>
+                <LocationAutocomplete name="pickupPoint" latName="pickupLat" lngName="pickupLng" required />
+            </div>
+
             <div>
               <label htmlFor="travelers" className="block text-sm font-medium mb-1">
                 Number of travelers
@@ -88,38 +96,6 @@ export default async function NewBookingPage({
             </div>
 
             <div>
-              <label htmlFor="originCity" className="block text-sm font-medium mb-1">
-                Traveling from
-              </label>
-              <input
-                id="originCity"
-                name="originCity"
-                type="text"
-                placeholder="e.g. Bengaluru"
-                required
-                className="w-full border border-black/10 rounded-md px-3 py-2"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="transportPaisePerPerson" className="block text-sm font-medium mb-1">
-                Estimated travel cost (train/flight) per person, ₹
-              </label>
-              <input
-                id="transportPaisePerPerson"
-                name="transportPaisePerPerson"
-                type="number"
-                min={0}
-                defaultValue={2500}
-                required
-                className="w-full border border-black/10 rounded-md px-3 py-2"
-              />
-              <p className="text-xs text-charcoal/50 mt-1">
-                Covers both onward and return travel — edit if you already have a fare in mind.
-              </p>
-            </div>
-
-            <div>
               <label htmlFor="vehicleType" className="block text-sm font-medium mb-1">
                 Local vehicle for sightseeing
               </label>
@@ -133,11 +109,6 @@ export default async function NewBookingPage({
                 <option value="SUV">SUV (up to 6 people, ₹22/km)</option>
               </select>
             </div>
-
-            <p className="text-sm text-charcoal/50">
-              Total road distance for this itinerary: ~{pkg.roadDistanceKm} km.
-              Driver-guide cost is calculated from this on the next screen.
-            </p>
 
             <button
               type="submit"

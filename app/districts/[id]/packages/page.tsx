@@ -50,6 +50,14 @@ export default async function PackagesPage({
           <div className="space-y-5">
             {packages.map((pkg) => {
               const entriesCostPaise = pkg.pricePaise - pkg.hotelCostPaise - pkg.transportCostPaise;
+
+              const dayMap = new Map<number, string[]>();
+              for (const ps of pkg.packageStops) {
+                if (!dayMap.has(ps.dayNumber)) dayMap.set(ps.dayNumber, []);
+                dayMap.get(ps.dayNumber)!.push(ps.stop.name);
+              }
+              const sortedDays = Array.from(dayMap.entries()).sort((a, b) => a[0] - b[0]);
+
               return (
                 <div
                   key={pkg.id}
@@ -85,13 +93,13 @@ export default async function PackagesPage({
                     </div>
                   </div>
 
-                  <ul className="text-sm text-charcoal/70 space-y-1">
-                    {pkg.packageStops.map((ps) => (
-                      <li key={ps.id}>
-                        <span className="font-medium text-charcoal">Day {ps.dayNumber}:</span> {ps.stop.name}
-                      </li>
+                  <div className="text-sm text-charcoal/70 space-y-1">
+                    {sortedDays.map(([day, names]) => (
+                      <p key={day}>
+                        <span className="font-medium text-charcoal">Day {day}:</span> {names.join(", ")}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
 
                   <Link
                     href={`/bookings/new?packageId=${pkg.id}`}

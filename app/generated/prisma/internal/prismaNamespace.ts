@@ -1084,6 +1084,8 @@ export const StopScalarFieldEnum = {
   description: 'description',
   imageUrl: 'imageUrl',
   costPaise: 'costPaise',
+  latitude: 'latitude',
+  longitude: 'longitude',
   districtId: 'districtId',
   createdAt: 'createdAt'
 } as const
@@ -1144,6 +1146,7 @@ export const BookingScalarFieldEnum = {
   vehicleType: 'vehicleType',
   transportPaisePerPerson: 'transportPaisePerPerson',
   driverCostPaise: 'driverCostPaise',
+  actualRoadDistanceKm: 'actualRoadDistanceKm',
   tollFoodingIncluded: 'tollFoodingIncluded',
   totalCostPaise: 'totalCostPaise',
   status: 'status',
@@ -1247,6 +1250,20 @@ export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
  * Reference to a field of type 'PackageTier'
  */
 export type EnumPackageTierFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PackageTier'>
@@ -1285,20 +1302,6 @@ export type EnumBookingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$Pr
  * Reference to a field of type 'BookingStatus[]'
  */
 export type ListEnumBookingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BookingStatus[]'>
-    
-
-
-/**
- * Reference to a field of type 'Float'
- */
-export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-/**
- * Reference to a field of type 'Float[]'
- */
-export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**

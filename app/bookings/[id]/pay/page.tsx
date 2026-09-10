@@ -34,8 +34,6 @@ export default async function PayPage({
   const entriesCostPaise = pkg ? pkg.pricePaise - pkg.hotelCostPaise - pkg.transportCostPaise : 0;
   const hotelCostScaled = pkg ? pkg.hotelCostPaise * booking.rooms : 0;
   const localTransportPaise = pkg ? pkg.transportCostPaise : 0;
-  const packageCostScaled = hotelCostScaled + localTransportPaise + entriesCostPaise;
-  const longDistanceTransportPaise = booking.transportPaisePerPerson * booking.travelers * 2;
 
   return (
     <>
@@ -51,19 +49,20 @@ export default async function PayPage({
 
           <div className="space-y-2 text-sm bg-[#F5F1E8] rounded-md p-4">
             <div className="flex justify-between">
-              <span>Package price ({booking.rooms} room{booking.rooms > 1 ? "s" : ""})</span>
-              <span>₹{(packageCostScaled / 100).toLocaleString("en-IN")}</span>
+              <span>Hotel ({booking.rooms} room{booking.rooms > 1 ? "s" : ""})</span>
+              <span>₹{(hotelCostScaled / 100).toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between text-charcoal/50 text-xs pl-3">
-              <span>— hotel: ₹{(hotelCostScaled / 100).toLocaleString("en-IN")}, local transport: ₹{(localTransportPaise / 100).toLocaleString("en-IN")}, entries: ₹{(entriesCostPaise / 100).toLocaleString("en-IN")}</span>
+            <div className="flex justify-between">
+              <span>Local transport (sightseeing)</span>
+              <span>₹{(localTransportPaise / 100).toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between pt-2">
-              <span>Travel from {booking.originCity} (onward + return, {booking.travelers} travelers)</span>
-              <span>₹{(longDistanceTransportPaise / 100).toLocaleString("en-IN")}</span>
+            <div className="flex justify-between">
+              <span>Entries & activities</span>
+              <span>₹{(entriesCostPaise / 100).toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between text-charcoal/40 text-xs pt-1">
-              <span>Toll & driver fooding</span>
-              <span>Optional, pay locally</span>
+            <div className="flex justify-between">
+              <span>Pickup ({booking.originCity}) to drop ({booking.vehicleType.toLowerCase()}, {booking.actualRoadDistanceKm} km)</span>
+              <span>₹{(booking.driverCostPaise / 100).toLocaleString("en-IN")}</span>
             </div>
           </div>
 

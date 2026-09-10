@@ -3,8 +3,6 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import StateMapClient from "@/app/states/StateMapClient";
 
-export const dynamic = "force-dynamic";
-
 export default function StatesPage() {
   return (
     <>
@@ -23,7 +21,7 @@ export default function StatesPage() {
         </div>
         <div className="absolute inset-0 bg-ink/85" />
 
-        <div className="relative max-w-md mx-auto px-4 py-14">
+        <div className="relative max-w-2xl mx-auto px-4 py-14">
           <p className="text-gold text-sm font-medium text-center mb-2">
             36 states and union territories
           </p>

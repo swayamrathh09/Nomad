@@ -62,6 +62,8 @@ model Stop {
   description String?
   imageUrl    String?
   costPaise   Int     @default(0)
+  latitude    Float?
+  longitude   Float?
 
   district   District @relation(fields: [districtId], references: [id])
   districtId String
@@ -147,6 +149,7 @@ model Booking {
   vehicleType             String  @default("SEDAN")
   transportPaisePerPerson Int     @default(0)
   driverCostPaise         Int     @default(0)
+  actualRoadDistanceKm    Int     @default(0)
   tollFoodingIncluded     Boolean @default(false)
 
   totalCostPaise Int

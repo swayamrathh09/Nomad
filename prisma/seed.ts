@@ -48,15 +48,24 @@ const DISTRICTS: { name: string; displayName?: string; isSelectable: boolean }[]
   { name: "Sundargarh", isSelectable: false },
 ];
 
-const PURI_STOPS = [
-  { name: "Jagannath Temple", description: "12th-century temple, spiritual heart of Puri.", imageUrl: "/images/jagannath-temple.jpg", costPaise: 20000 },
-  { name: "Puri Beach", description: "Golden Bay of Bengal shoreline, popular at sunrise.", imageUrl: "/images/puri-beach.jpg", costPaise: 0 },
-  { name: "Gundicha Temple", description: "Lord Jagannath's 'garden house', key Rath Yatra stop.", imageUrl: "/images/gundicha-temple.jpg", costPaise: 0 },
-  { name: "Konark Sun Temple", description: "UNESCO site, 13th-century chariot-shaped temple.", imageUrl: "/images/konark.jpg", costPaise: 50000 },
-  { name: "Raghurajpur Heritage Village", description: "Artist village known for Pattachitra painting.", imageUrl: "/images/raghurajpur.jpg", costPaise: 10000 },
-  { name: "Chilika Lake (Satapada)", description: "Boat safari on Asia's largest brackish water lagoon, dolphin spotting.", imageUrl: "/images/chilika.jpg", costPaise: 60000 },
-  { name: "Puri Beach Sunrise Point", description: "Quiet stretch of Puri Beach, best at dawn.", imageUrl: "/images/puri-sunrise.jpg", costPaise: 0 },
-  { name: "Sudarshan Crafts Museum", description: "Odisha handicrafts and stone/wood carving exhibits.", imageUrl: "/images/sudarshan-museum.jpg", costPaise: 5000 },
+type StopSeed = {
+  name: string;
+  description: string;
+  imageUrl: string;
+  costPaise: number;
+  latitude: number;
+  longitude: number;
+};
+
+const PURI_STOPS: StopSeed[] = [
+  { name: "Jagannath Temple", description: "12th-century temple, spiritual heart of Puri.", imageUrl: "/images/jagannath-temple.jpg", costPaise: 20000, latitude: 19.8135, longitude: 85.8312 },
+  { name: "Puri Beach", description: "Golden Bay of Bengal shoreline, popular at sunrise.", imageUrl: "/images/puri-beach.jpg", costPaise: 0, latitude: 19.7983, longitude: 85.8248 },
+  { name: "Gundicha Temple", description: "Lord Jagannath's 'garden house', key Rath Yatra stop.", imageUrl: "/images/gundicha-temple.jpg", costPaise: 0, latitude: 19.8062, longitude: 85.8180 },
+  { name: "Konark Sun Temple", description: "UNESCO site, 13th-century chariot-shaped temple.", imageUrl: "/images/konark.jpg", costPaise: 50000, latitude: 19.8876, longitude: 86.0945 },
+  { name: "Raghurajpur Heritage Village", description: "Artist village known for Pattachitra painting.", imageUrl: "/images/raghurajpur.jpg", costPaise: 10000, latitude: 19.8637, longitude: 85.8200 },
+  { name: "Chilika Lake (Satapada)", description: "Boat safari on Asia's largest brackish water lagoon, dolphin spotting.", imageUrl: "/images/chilika.jpg", costPaise: 60000, latitude: 19.6167, longitude: 85.4667 },
+  { name: "Puri Beach Sunrise Point", description: "Quiet stretch of Puri Beach, best at dawn.", imageUrl: "/images/puri-sunrise.jpg", costPaise: 0, latitude: 19.7990, longitude: 85.8300 },
+  { name: "Sudarshan Crafts Museum", description: "Odisha handicrafts and stone/wood carving exhibits.", imageUrl: "/images/sudarshan-museum.jpg", costPaise: 5000, latitude: 19.8100, longitude: 85.8300 },
 ];
 
 const PURI_PACKAGES = [
@@ -116,15 +125,15 @@ const PURI_PACKAGES = [
   },
 ];
 
-const BHUBANESWAR_STOPS = [
-  { name: "Lingaraj Temple", description: "11th-century temple, one of the largest in Bhubaneswar.", imageUrl: "/images/lingaraj-temple.jpg", costPaise: 0 },
-  { name: "Mukteswar Temple", description: "10th-century temple famed for its ornate arched gateway.", imageUrl: "/images/mukteswar-temple.jpg", costPaise: 0 },
-  { name: "Rajarani Temple", description: "11th-century sandstone temple known for its sculpted spire.", imageUrl: "/images/rajarani-temple.jpg", costPaise: 3000 },
-  { name: "Udayagiri and Khandagiri Caves", description: "2nd-century BCE rock-cut caves with Jain inscriptions.", imageUrl: "/images/udayagiri-khandagiri.jpg", costPaise: 2500 },
-  { name: "Nandankanan Zoological Park", description: "Zoo and botanical garden, known for white tigers.", imageUrl: "/images/nandankanan.jpg", costPaise: 10000 },
-  { name: "Dhauli Shanti Stupa", description: "Peace pagoda marking Ashoka's Kalinga war site.", imageUrl: "/images/dhauli.jpg", costPaise: 0 },
-  { name: "Odisha State Museum", description: "Archaeology, manuscripts, and Odisha's tribal heritage.", imageUrl: "/images/odisha-museum.jpg", costPaise: 1000 },
-  { name: "Ekamra Kanan Botanical Garden", description: "Botanical garden and cactus house in the city center.", imageUrl: "/images/ekamra-kanan.jpg", costPaise: 2000 },
+const BHUBANESWAR_STOPS: StopSeed[] = [
+  { name: "Lingaraj Temple", description: "11th-century temple, one of the largest in Bhubaneswar.", imageUrl: "/images/lingaraj-temple.jpg", costPaise: 0, latitude: 20.2372, longitude: 85.8345 },
+  { name: "Mukteswar Temple", description: "10th-century temple famed for its ornate arched gateway.", imageUrl: "/images/mukteswar-temple.jpg", costPaise: 0, latitude: 20.2394, longitude: 85.8331 },
+  { name: "Rajarani Temple", description: "11th-century sandstone temple known for its sculpted spire.", imageUrl: "/images/rajarani-temple.jpg", costPaise: 3000, latitude: 20.2465, longitude: 85.8367 },
+  { name: "Udayagiri and Khandagiri Caves", description: "2nd-century BCE rock-cut caves with Jain inscriptions.", imageUrl: "/images/udayagiri-khandagiri.jpg", costPaise: 2500, latitude: 20.2564, longitude: 85.7847 },
+  { name: "Nandankanan Zoological Park", description: "Zoo and botanical garden, known for white tigers.", imageUrl: "/images/nandankanan.jpg", costPaise: 10000, latitude: 20.3936, longitude: 85.8189 },
+  { name: "Dhauli Shanti Stupa", description: "Peace pagoda marking Ashoka's Kalinga war site.", imageUrl: "/images/dhauli.jpg", costPaise: 0, latitude: 20.1928, longitude: 85.8422 },
+  { name: "Odisha State Museum", description: "Archaeology, manuscripts, and Odisha's tribal heritage.", imageUrl: "/images/odisha-museum.jpg", costPaise: 1000, latitude: 20.2700, longitude: 85.8390 },
+  { name: "Ekamra Kanan Botanical Garden", description: "Botanical garden and cactus house in the city center.", imageUrl: "/images/ekamra-kanan.jpg", costPaise: 2000, latitude: 20.2833, longitude: 85.8167 },
 ];
 
 const BHUBANESWAR_PACKAGES = [
@@ -184,15 +193,15 @@ const BHUBANESWAR_PACKAGES = [
   },
 ];
 
-const KORAPUT_STOPS = [
-  { name: "Jagannath Temple, Koraput", description: "Local temple in the heart of Koraput town.", imageUrl: "/images/koraput-jagannath.jpg", costPaise: 0 },
-  { name: "Koraput Tribal Museum", description: "Museum on the tribal cultures of southern Odisha.", imageUrl: "/images/koraput-tribal-museum.jpg", costPaise: 1000 },
-  { name: "Gupteswar Cave Shrine", description: "Limestone cave temple dedicated to Shiva.", imageUrl: "/images/gupteswar-cave.jpg", costPaise: 2000 },
-  { name: "Deomali Peak", description: "Odisha's highest peak, a hill-country viewpoint.", imageUrl: "/images/deomali-peak.jpg", costPaise: 0 },
-  { name: "Duduma Waterfall", description: "157m waterfall on the Machhkund river.", imageUrl: "/images/duduma-waterfall.jpg", costPaise: 0 },
-  { name: "Machhkund Hydro Power Project", description: "Dam and hydroelectric project with river views.", imageUrl: "/images/machhkund-dam.jpg", costPaise: 0 },
-  { name: "Kolab Dam", description: "Scenic reservoir in the hills outside town.", imageUrl: "/images/kolab-dam.jpg", costPaise: 0 },
-  { name: "Kotpad Weaving Village", description: "Handloom village known for natural-dye textiles.", imageUrl: "/images/kotpad-village.jpg", costPaise: 0 },
+const KORAPUT_STOPS: StopSeed[] = [
+  { name: "Jagannath Temple, Koraput", description: "Local temple in the heart of Koraput town.", imageUrl: "/images/koraput-jagannath.jpg", costPaise: 0, latitude: 18.8121, longitude: 82.7108 },
+  { name: "Koraput Tribal Museum", description: "Museum on the tribal cultures of southern Odisha.", imageUrl: "/images/koraput-tribal-museum.jpg", costPaise: 1000, latitude: 18.8100, longitude: 82.7100 },
+  { name: "Gupteswar Cave Shrine", description: "Limestone cave temple dedicated to Shiva.", imageUrl: "/images/gupteswar-cave.jpg", costPaise: 2000, latitude: 18.6000, longitude: 82.3333 },
+  { name: "Deomali Peak", description: "Odisha's highest peak, a hill-country viewpoint.", imageUrl: "/images/deomali-peak.jpg", costPaise: 0, latitude: 18.6470, longitude: 82.7278 },
+  { name: "Duduma Waterfall", description: "157m waterfall on the Machhkund river.", imageUrl: "/images/duduma-waterfall.jpg", costPaise: 0, latitude: 18.3833, longitude: 82.5667 },
+  { name: "Machhkund Hydro Power Project", description: "Dam and hydroelectric project with river views.", imageUrl: "/images/machhkund-dam.jpg", costPaise: 0, latitude: 18.3833, longitude: 82.5667 },
+  { name: "Kolab Dam", description: "Scenic reservoir in the hills outside town.", imageUrl: "/images/kolab-dam.jpg", costPaise: 0, latitude: 18.7333, longitude: 82.7333 },
+  { name: "Kotpad Weaving Village", description: "Handloom village known for natural-dye textiles.", imageUrl: "/images/kotpad-village.jpg", costPaise: 0, latitude: 19.1500, longitude: 82.3333 },
 ];
 
 const KORAPUT_PACKAGES = [
@@ -252,15 +261,15 @@ const KORAPUT_PACKAGES = [
   },
 ];
 
-const CUTTACK_STOPS = [
-  { name: "Barabati Fort", description: "16th-century fort ruins on the Mahanadi's bank.", imageUrl: "/images/barabati-fort.jpg", costPaise: 0 },
-  { name: "Cuttack Chandi Temple", description: "Temple to the city's patron goddess.", imageUrl: "/images/cuttack-chandi.jpg", costPaise: 0 },
-  { name: "Silver Filigree (Tarakasi) Workshop", description: "Watch Cuttack's famous silver filigree craft being made.", imageUrl: "/images/tarakasi-workshop.jpg", costPaise: 0 },
-  { name: "Netaji Birthplace Museum", description: "Subhas Chandra Bose's birth house, now a museum.", imageUrl: "/images/netaji-museum.jpg", costPaise: 1000 },
-  { name: "Dhabaleswar Temple", description: "Island temple on the Mahanadi, reached by boat.", imageUrl: "/images/dhabaleswar-temple.jpg", costPaise: 3000 },
-  { name: "Qadam-e-Rasul", description: "17th-century Mughal-era shrine complex.", imageUrl: "/images/qadam-e-rasul.jpg", costPaise: 0 },
-  { name: "Mahanadi Riverfront", description: "Riverside promenade through the old city.", imageUrl: "/images/mahanadi-riverfront.jpg", costPaise: 0 },
-  { name: "Buxi Bazaar Market", description: "Cuttack's historic silver and textile market.", imageUrl: "/images/buxi-bazaar.jpg", costPaise: 0 },
+const CUTTACK_STOPS: StopSeed[] = [
+  { name: "Barabati Fort", description: "16th-century fort ruins on the Mahanadi's bank.", imageUrl: "/images/barabati-fort.jpg", costPaise: 0, latitude: 20.4894, longitude: 85.8828 },
+  { name: "Cuttack Chandi Temple", description: "Temple to the city's patron goddess.", imageUrl: "/images/cuttack-chandi.jpg", costPaise: 0, latitude: 20.4700, longitude: 85.8800 },
+  { name: "Silver Filigree (Tarakasi) Workshop", description: "Watch Cuttack's famous silver filigree craft being made.", imageUrl: "/images/tarakasi-workshop.jpg", costPaise: 0, latitude: 20.4650, longitude: 85.8750 },
+  { name: "Netaji Birthplace Museum", description: "Subhas Chandra Bose's birth house, now a museum.", imageUrl: "/images/netaji-museum.jpg", costPaise: 1000, latitude: 20.4736, longitude: 85.8825 },
+  { name: "Dhabaleswar Temple", description: "Island temple on the Mahanadi, reached by boat.", imageUrl: "/images/dhabaleswar-temple.jpg", costPaise: 3000, latitude: 20.5500, longitude: 85.7833 },
+  { name: "Mahanadi Riverfront", description: "Riverside promenade through the old city.", imageUrl: "/images/mahanadi-riverfront.jpg", costPaise: 0, latitude: 20.4850, longitude: 85.8800 },
+  { name: "Buxi Bazaar Market", description: "Cuttack's historic silver and textile market.", imageUrl: "/images/buxi-bazaar.jpg", costPaise: 0, latitude: 20.4680, longitude: 85.8790 },
+  { name: "Ravenshaw University Heritage Building", description: "19th-century colonial-era campus, one of the oldest in eastern India.", imageUrl: "/images/ravenshaw.jpg", costPaise: 0, latitude: 20.4625, longitude: 85.8828 },
 ];
 
 const CUTTACK_PACKAGES = [
@@ -277,7 +286,7 @@ const CUTTACK_PACKAGES = [
       { name: "Barabati Fort", day: 1 },
       { name: "Cuttack Chandi Temple", day: 1 },
       { name: "Silver Filigree (Tarakasi) Workshop", day: 2 },
-      { name: "Qadam-e-Rasul", day: 2 },
+      { name: "Buxi Bazaar Market", day: 2 },
     ],
   },
   {
@@ -295,14 +304,14 @@ const CUTTACK_PACKAGES = [
       { name: "Silver Filigree (Tarakasi) Workshop", day: 2 },
       { name: "Netaji Birthplace Museum", day: 2 },
       { name: "Dhabaleswar Temple", day: 3 },
-      { name: "Qadam-e-Rasul", day: 3 },
+      { name: "Mahanadi Riverfront", day: 3 },
     ],
   },
   {
     name: "Cuttack Premium Getaway",
     tier: "PREMIUM" as const,
     days: 4,
-    description: "Full heritage circuit plus the riverfront and old market, premium stay.",
+    description: "Full heritage circuit plus the old market and university campus, premium stay.",
     hotelCostPaise: 1200000,
     transportCostPaise: 260000,
     pricePaise: 1464000,
@@ -314,21 +323,21 @@ const CUTTACK_PACKAGES = [
       { name: "Netaji Birthplace Museum", day: 2 },
       { name: "Dhabaleswar Temple", day: 3 },
       { name: "Mahanadi Riverfront", day: 3 },
-      { name: "Qadam-e-Rasul", day: 4 },
+      { name: "Ravenshaw University Heritage Building", day: 4 },
       { name: "Buxi Bazaar Market", day: 4 },
     ],
   },
 ];
 
-const BERHAMPUR_STOPS = [
-  { name: "Gopalpur Beach", description: "Historic beach town on the Bay of Bengal.", imageUrl: "/images/gopalpur-beach.jpg", costPaise: 0 },
-  { name: "Gopalpur Lighthouse", description: "Colonial-era lighthouse overlooking the coast.", imageUrl: "/images/gopalpur-lighthouse.jpg", costPaise: 2000 },
-  { name: "Taptapani Hot Spring", description: "Natural sulphur hot spring in the hills.", imageUrl: "/images/taptapani.jpg", costPaise: 1500 },
-  { name: "Rambha Chilika Boat Point", description: "Southern Chilika Lake boat access point.", imageUrl: "/images/rambha-chilika.jpg", costPaise: 40000 },
-  { name: "Berhampur Silk Weaving Village", description: "Home of the Berhampuri Patta silk saree.", imageUrl: "/images/berhampur-silk.jpg", costPaise: 0 },
-  { name: "Khallikote Fort Ruins", description: "Ruins of a former princely estate fort.", imageUrl: "/images/khallikote-fort.jpg", costPaise: 0 },
-  { name: "Sonepur Beach", description: "Quieter beach stretch near Gopalpur.", imageUrl: "/images/sonepur-beach.jpg", costPaise: 0 },
-  { name: "Berhampur Town Market", description: "Old town market on Aska Road.", imageUrl: "/images/berhampur-market.jpg", costPaise: 0 },
+const BERHAMPUR_STOPS: StopSeed[] = [
+  { name: "Gopalpur Beach", description: "Historic beach town on the Bay of Bengal.", imageUrl: "/images/gopalpur-beach.jpg", costPaise: 0, latitude: 19.2667, longitude: 84.9167 },
+  { name: "Gopalpur Lighthouse", description: "Colonial-era lighthouse overlooking the coast.", imageUrl: "/images/gopalpur-lighthouse.jpg", costPaise: 2000, latitude: 19.2650, longitude: 84.9150 },
+  { name: "Taptapani Hot Spring", description: "Natural sulphur hot spring in the hills.", imageUrl: "/images/taptapani.jpg", costPaise: 1500, latitude: 19.5333, longitude: 84.3833 },
+  { name: "Rambha Chilika Boat Point", description: "Southern Chilika Lake boat access point.", imageUrl: "/images/rambha-chilika.jpg", costPaise: 40000, latitude: 19.5500, longitude: 85.1333 },
+  { name: "Berhampur Silk Weaving Village", description: "Home of the Berhampuri Patta silk saree.", imageUrl: "/images/berhampur-silk.jpg", costPaise: 0, latitude: 19.3149, longitude: 84.7941 },
+  { name: "Khallikote Fort Ruins", description: "Ruins of a former princely estate fort.", imageUrl: "/images/khallikote-fort.jpg", costPaise: 0, latitude: 19.7500, longitude: 84.9833 },
+  { name: "Sonepur Beach", description: "Quieter beach stretch near Gopalpur.", imageUrl: "/images/sonepur-beach.jpg", costPaise: 0, latitude: 19.2833, longitude: 84.9000 },
+  { name: "Berhampur Town Market", description: "Old town market on Aska Road.", imageUrl: "/images/berhampur-market.jpg", costPaise: 0, latitude: 19.3149, longitude: 84.7941 },
 ];
 
 const BERHAMPUR_PACKAGES = [
@@ -390,7 +399,7 @@ const BERHAMPUR_PACKAGES = [
 
 async function seedDistrict(
   districtName: string,
-  stopsData: typeof PURI_STOPS,
+  stopsData: StopSeed[],
   packagesData: typeof PURI_PACKAGES
 ) {
   const district = await prisma.district.findFirstOrThrow({
@@ -406,8 +415,18 @@ async function seedDistrict(
         description: s.description,
         imageUrl: s.imageUrl,
         costPaise: s.costPaise,
+        latitude: s.latitude,
+        longitude: s.longitude,
       },
-      create: { ...s, districtId: district.id },
+      create: {
+        name: s.name,
+        description: s.description,
+        imageUrl: s.imageUrl,
+        costPaise: s.costPaise,
+        latitude: s.latitude,
+        longitude: s.longitude,
+        districtId: district.id,
+      },
     });
     stopMap.set(s.name, stop.id);
   }

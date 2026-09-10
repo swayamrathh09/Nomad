@@ -6,6 +6,14 @@ import Footer from "@/app/components/Footer";
 
 export const dynamic = "force-dynamic";
 
+const DISTRICT_IMAGES: Record<string, string> = {
+  Puri: "/images/regions/puri.jpg",
+  Khordha: "/images/regions/bhubaneswar.jpg",
+  Cuttack: "/images/regions/cuttack.jpg",
+  Ganjam: "/images/regions/berhampur.jpg",
+  Koraput: "/images/regions/koraput.jpg",
+};
+
 export default async function DistrictsPage() {
   const odisha = await prisma.state.findUniqueOrThrow({
     where: { name: "Odisha" },
@@ -47,7 +55,7 @@ export default async function DistrictsPage() {
                 className="relative overflow-hidden rounded-lg group min-h-[200px]"
               >
                 <Image
-                  src="/images/regions/odisha.jpg"
+                  src={DISTRICT_IMAGES[d.name] || "/images/regions/odisha.jpg"}
                   alt={d.displayName || d.name}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
