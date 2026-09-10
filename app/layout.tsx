@@ -13,8 +13,8 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Nomad — Odisha, beyond Puri",
-  description: "Plan and book trips to Odisha's district hub cities.",
+  title: "Nomad — Plan real trips across India",
+  description: "Trip planning for every district of India, starting with Odisha.",
 };
 
 export default function RootLayout({
