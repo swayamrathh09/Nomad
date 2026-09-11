@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 export async function login(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
+  const redirectTo = (formData.get("redirectTo") as string) || "/";
 
   if (!email || !password) {
     return { error: "Email and password are required." };
@@ -19,5 +20,5 @@ export async function login(formData: FormData) {
     return { error: error.message };
   }
 
-  redirect("/");
+  redirect(redirectTo);
 }

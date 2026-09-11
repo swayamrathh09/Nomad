@@ -84,8 +84,8 @@ export default async function PackagesPage({
                       <p className="font-semibold">₹{(pkg.hotelCostPaise / 100).toLocaleString("en-IN")}</p>
                     </div>
                     <div>
-                      <p className="text-charcoal/50 text-xs">Local transport</p>
-                      <p className="font-semibold">₹{(pkg.transportCostPaise / 100).toLocaleString("en-IN")}</p>
+                      <p className="text-charcoal/50 text-xs">Itinerary distance</p>
+                      <p className="font-semibold">{pkg.roadDistanceKm} km</p>
                     </div>
                     <div>
                       <p className="text-charcoal/50 text-xs">Entries & activities</p>

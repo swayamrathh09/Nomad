@@ -57,6 +57,17 @@ type StopSeed = {
   longitude: number;
 };
 
+type PackageSeed = {
+  name: string;
+  tier: "BUDGET" | "STANDARD" | "PREMIUM";
+  days: number;
+  description: string;
+  hotelCostPaise: number;
+  pricePaise: number;
+  fallbackRoadDistanceKm: number;
+  stops: { name: string; day: number }[];
+};
+
 const PURI_STOPS: StopSeed[] = [
   { name: "Jagannath Temple", description: "12th-century temple, spiritual heart of Puri.", imageUrl: "/images/jagannath-temple.jpg", costPaise: 20000, latitude: 19.8135, longitude: 85.8312 },
   { name: "Puri Beach", description: "Golden Bay of Bengal shoreline, popular at sunrise.", imageUrl: "/images/puri-beach.jpg", costPaise: 0, latitude: 19.7983, longitude: 85.8248 },
@@ -68,16 +79,15 @@ const PURI_STOPS: StopSeed[] = [
   { name: "Sudarshan Crafts Museum", description: "Odisha handicrafts and stone/wood carving exhibits.", imageUrl: "/images/sudarshan-museum.jpg", costPaise: 5000, latitude: 19.8100, longitude: 85.8300 },
 ];
 
-const PURI_PACKAGES = [
+const PURI_PACKAGES: PackageSeed[] = [
   {
     name: "Puri Budget Explorer",
-    tier: "BUDGET" as const,
+    tier: "BUDGET",
     days: 2,
     description: "Essential Puri temple and beach circuit, budget stay.",
     hotelCostPaise: 200000,
-    transportCostPaise: 60000,
-    pricePaise: 280000,
-    roadDistanceKm: 11,
+    pricePaise: 220000,
+    fallbackRoadDistanceKm: 11,
     stops: [
       { name: "Jagannath Temple", day: 1 },
       { name: "Puri Beach", day: 1 },
@@ -87,13 +97,12 @@ const PURI_PACKAGES = [
   },
   {
     name: "Puri Standard Circuit",
-    tier: "STANDARD" as const,
+    tier: "STANDARD",
     days: 3,
     description: "Temples, beach, and a Konark Sun Temple day trip, mid-range stay.",
     hotelCostPaise: 540000,
-    transportCostPaise: 150000,
-    pricePaise: 770000,
-    roadDistanceKm: 67,
+    pricePaise: 620000,
+    fallbackRoadDistanceKm: 67,
     stops: [
       { name: "Jagannath Temple", day: 1 },
       { name: "Puri Beach", day: 1 },
@@ -105,13 +114,12 @@ const PURI_PACKAGES = [
   },
   {
     name: "Puri Premium Getaway",
-    tier: "PREMIUM" as const,
+    tier: "PREMIUM",
     days: 4,
     description: "Full circuit plus Chilika Lake dolphin safari, premium stay.",
     hotelCostPaise: 1400000,
-    transportCostPaise: 300000,
-    pricePaise: 1845000,
-    roadDistanceKm: 132,
+    pricePaise: 1545000,
+    fallbackRoadDistanceKm: 132,
     stops: [
       { name: "Jagannath Temple", day: 1 },
       { name: "Puri Beach", day: 1 },
@@ -136,16 +144,15 @@ const BHUBANESWAR_STOPS: StopSeed[] = [
   { name: "Ekamra Kanan Botanical Garden", description: "Botanical garden and cactus house in the city center.", imageUrl: "/images/ekamra-kanan.jpg", costPaise: 2000, latitude: 20.2833, longitude: 85.8167 },
 ];
 
-const BHUBANESWAR_PACKAGES = [
+const BHUBANESWAR_PACKAGES: PackageSeed[] = [
   {
     name: "Bhubaneswar Budget Explorer",
-    tier: "BUDGET" as const,
+    tier: "BUDGET",
     days: 2,
     description: "Temple city essentials, budget stay.",
     hotelCostPaise: 200000,
-    transportCostPaise: 50000,
-    pricePaise: 253000,
-    roadDistanceKm: 25,
+    pricePaise: 203000,
+    fallbackRoadDistanceKm: 25,
     stops: [
       { name: "Lingaraj Temple", day: 1 },
       { name: "Mukteswar Temple", day: 1 },
@@ -155,13 +162,12 @@ const BHUBANESWAR_PACKAGES = [
   },
   {
     name: "Bhubaneswar Standard Circuit",
-    tier: "STANDARD" as const,
+    tier: "STANDARD",
     days: 3,
     description: "Temples, ancient caves, and the state museum, mid-range stay.",
     hotelCostPaise: 540000,
-    transportCostPaise: 120000,
-    pricePaise: 666500,
-    roadDistanceKm: 45,
+    pricePaise: 546500,
+    fallbackRoadDistanceKm: 45,
     stops: [
       { name: "Lingaraj Temple", day: 1 },
       { name: "Mukteswar Temple", day: 1 },
@@ -173,13 +179,12 @@ const BHUBANESWAR_PACKAGES = [
   },
   {
     name: "Bhubaneswar Premium Getaway",
-    tier: "PREMIUM" as const,
+    tier: "PREMIUM",
     days: 4,
     description: "Full temple and heritage circuit plus Nandankanan, premium stay.",
     hotelCostPaise: 1400000,
-    transportCostPaise: 250000,
-    pricePaise: 1668500,
-    roadDistanceKm: 90,
+    pricePaise: 1418500,
+    fallbackRoadDistanceKm: 90,
     stops: [
       { name: "Lingaraj Temple", day: 1 },
       { name: "Mukteswar Temple", day: 1 },
@@ -204,16 +209,15 @@ const KORAPUT_STOPS: StopSeed[] = [
   { name: "Kotpad Weaving Village", description: "Handloom village known for natural-dye textiles.", imageUrl: "/images/kotpad-village.jpg", costPaise: 0, latitude: 19.1500, longitude: 82.3333 },
 ];
 
-const KORAPUT_PACKAGES = [
+const KORAPUT_PACKAGES: PackageSeed[] = [
   {
     name: "Koraput Budget Explorer",
-    tier: "BUDGET" as const,
+    tier: "BUDGET",
     days: 2,
     description: "Town temple, tribal museum, and Gupteswar cave shrine, budget stay.",
     hotelCostPaise: 180000,
-    transportCostPaise: 60000,
-    pricePaise: 243000,
-    roadDistanceKm: 40,
+    pricePaise: 183000,
+    fallbackRoadDistanceKm: 40,
     stops: [
       { name: "Jagannath Temple, Koraput", day: 1 },
       { name: "Koraput Tribal Museum", day: 1 },
@@ -223,13 +227,12 @@ const KORAPUT_PACKAGES = [
   },
   {
     name: "Koraput Standard Circuit",
-    tier: "STANDARD" as const,
+    tier: "STANDARD",
     days: 3,
     description: "Hill country and cave shrine plus a waterfall and dam day, mid-range stay.",
     hotelCostPaise: 480000,
-    transportCostPaise: 140000,
-    pricePaise: 623000,
-    roadDistanceKm: 90,
+    pricePaise: 483000,
+    fallbackRoadDistanceKm: 90,
     stops: [
       { name: "Jagannath Temple, Koraput", day: 1 },
       { name: "Koraput Tribal Museum", day: 1 },
@@ -241,13 +244,12 @@ const KORAPUT_PACKAGES = [
   },
   {
     name: "Koraput Premium Getaway",
-    tier: "PREMIUM" as const,
+    tier: "PREMIUM",
     days: 4,
     description: "Full hill-country circuit plus Machhkund dam and Kotpad weaving village, premium stay.",
     hotelCostPaise: 1200000,
-    transportCostPaise: 280000,
-    pricePaise: 1483000,
-    roadDistanceKm: 160,
+    pricePaise: 1203000,
+    fallbackRoadDistanceKm: 160,
     stops: [
       { name: "Jagannath Temple, Koraput", day: 1 },
       { name: "Koraput Tribal Museum", day: 1 },
@@ -272,16 +274,15 @@ const CUTTACK_STOPS: StopSeed[] = [
   { name: "Ravenshaw University Heritage Building", description: "19th-century colonial-era campus, one of the oldest in eastern India.", imageUrl: "/images/ravenshaw.jpg", costPaise: 0, latitude: 20.4625, longitude: 85.8828 },
 ];
 
-const CUTTACK_PACKAGES = [
+const CUTTACK_PACKAGES: PackageSeed[] = [
   {
     name: "Cuttack Budget Explorer",
-    tier: "BUDGET" as const,
+    tier: "BUDGET",
     days: 2,
     description: "Fort, temple, and the silver filigree craft, budget stay.",
     hotelCostPaise: 180000,
-    transportCostPaise: 50000,
-    pricePaise: 230000,
-    roadDistanceKm: 20,
+    pricePaise: 180000,
+    fallbackRoadDistanceKm: 20,
     stops: [
       { name: "Barabati Fort", day: 1 },
       { name: "Cuttack Chandi Temple", day: 1 },
@@ -291,13 +292,12 @@ const CUTTACK_PACKAGES = [
   },
   {
     name: "Cuttack Standard Circuit",
-    tier: "STANDARD" as const,
+    tier: "STANDARD",
     days: 3,
     description: "Heritage city circuit plus an island temple boat ride, mid-range stay.",
     hotelCostPaise: 480000,
-    transportCostPaise: 130000,
-    pricePaise: 614000,
-    roadDistanceKm: 55,
+    pricePaise: 484000,
+    fallbackRoadDistanceKm: 55,
     stops: [
       { name: "Barabati Fort", day: 1 },
       { name: "Cuttack Chandi Temple", day: 1 },
@@ -309,13 +309,12 @@ const CUTTACK_PACKAGES = [
   },
   {
     name: "Cuttack Premium Getaway",
-    tier: "PREMIUM" as const,
+    tier: "PREMIUM",
     days: 4,
     description: "Full heritage circuit plus the old market and university campus, premium stay.",
     hotelCostPaise: 1200000,
-    transportCostPaise: 260000,
-    pricePaise: 1464000,
-    roadDistanceKm: 90,
+    pricePaise: 1204000,
+    fallbackRoadDistanceKm: 90,
     stops: [
       { name: "Barabati Fort", day: 1 },
       { name: "Cuttack Chandi Temple", day: 1 },
@@ -340,16 +339,15 @@ const BERHAMPUR_STOPS: StopSeed[] = [
   { name: "Berhampur Town Market", description: "Old town market on Aska Road.", imageUrl: "/images/berhampur-market.jpg", costPaise: 0, latitude: 19.3149, longitude: 84.7941 },
 ];
 
-const BERHAMPUR_PACKAGES = [
+const BERHAMPUR_PACKAGES: PackageSeed[] = [
   {
     name: "Berhampur Budget Explorer",
-    tier: "BUDGET" as const,
+    tier: "BUDGET",
     days: 2,
     description: "Gopalpur beach and a hot spring day, budget stay.",
     hotelCostPaise: 190000,
-    transportCostPaise: 55000,
-    pricePaise: 248500,
-    roadDistanceKm: 35,
+    pricePaise: 193500,
+    fallbackRoadDistanceKm: 35,
     stops: [
       { name: "Gopalpur Beach", day: 1 },
       { name: "Gopalpur Lighthouse", day: 1 },
@@ -359,13 +357,12 @@ const BERHAMPUR_PACKAGES = [
   },
   {
     name: "Berhampur Standard Circuit",
-    tier: "STANDARD" as const,
+    tier: "STANDARD",
     days: 3,
     description: "Beach town, hot spring, and a Chilika boat trip, mid-range stay.",
     hotelCostPaise: 510000,
-    transportCostPaise: 135000,
-    pricePaise: 688500,
-    roadDistanceKm: 80,
+    pricePaise: 553500,
+    fallbackRoadDistanceKm: 80,
     stops: [
       { name: "Gopalpur Beach", day: 1 },
       { name: "Gopalpur Lighthouse", day: 1 },
@@ -377,13 +374,12 @@ const BERHAMPUR_PACKAGES = [
   },
   {
     name: "Berhampur Premium Getaway",
-    tier: "PREMIUM" as const,
+    tier: "PREMIUM",
     days: 4,
     description: "Full coastal and hill-spring circuit plus the old town market, premium stay.",
     hotelCostPaise: 1280000,
-    transportCostPaise: 270000,
-    pricePaise: 1593500,
-    roadDistanceKm: 120,
+    pricePaise: 1323500,
+    fallbackRoadDistanceKm: 120,
     stops: [
       { name: "Gopalpur Beach", day: 1 },
       { name: "Gopalpur Lighthouse", day: 1 },
@@ -397,16 +393,34 @@ const BERHAMPUR_PACKAGES = [
   },
 ];
 
+async function getItineraryDistanceKm(
+  coords: { latitude: number; longitude: number }[]
+): Promise<number | null> {
+  if (coords.length < 2) return 0;
+  const path = coords.map((c) => `${c.longitude},${c.latitude}`).join(";");
+  try {
+    const res = await fetch(
+      `https://router.project-osrm.org/route/v1/driving/${path}?overview=false`
+    );
+    const data = await res.json();
+    if (data.code !== "Ok" || !data.routes?.[0]) return null;
+    return Math.round(data.routes[0].distance / 1000);
+  } catch {
+    return null;
+  }
+}
+
 async function seedDistrict(
   districtName: string,
   stopsData: StopSeed[],
-  packagesData: typeof PURI_PACKAGES
+  packagesData: PackageSeed[]
 ) {
   const district = await prisma.district.findFirstOrThrow({
     where: { name: districtName },
   });
 
   const stopMap = new Map<string, string>();
+  const stopCoordMap = new Map<string, { latitude: number; longitude: number }>();
 
   for (const s of stopsData) {
     const stop = await prisma.stop.upsert({
@@ -429,9 +443,14 @@ async function seedDistrict(
       },
     });
     stopMap.set(s.name, stop.id);
+    stopCoordMap.set(s.name, { latitude: s.latitude, longitude: s.longitude });
   }
 
   for (const pkg of packagesData) {
+    const orderedCoords = pkg.stops.map((s) => stopCoordMap.get(s.name)!);
+    const realDistance = await getItineraryDistanceKm(orderedCoords);
+    const roadDistanceKm = realDistance ?? pkg.fallbackRoadDistanceKm;
+
     const createdPkg = await prisma.package.upsert({
       where: { districtId_name: { districtId: district.id, name: pkg.name } },
       update: {
@@ -439,9 +458,9 @@ async function seedDistrict(
         days: pkg.days,
         description: pkg.description,
         hotelCostPaise: pkg.hotelCostPaise,
-        transportCostPaise: pkg.transportCostPaise,
+        transportCostPaise: 0,
         pricePaise: pkg.pricePaise,
-        roadDistanceKm: pkg.roadDistanceKm,
+        roadDistanceKm,
       },
       create: {
         name: pkg.name,
@@ -449,9 +468,9 @@ async function seedDistrict(
         days: pkg.days,
         description: pkg.description,
         hotelCostPaise: pkg.hotelCostPaise,
-        transportCostPaise: pkg.transportCostPaise,
+        transportCostPaise: 0,
         pricePaise: pkg.pricePaise,
-        roadDistanceKm: pkg.roadDistanceKm,
+        roadDistanceKm,
         districtId: district.id,
       },
     });

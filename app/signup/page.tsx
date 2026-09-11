@@ -38,6 +38,20 @@ export default function SignupPage() {
           </div>
 
           <div>
+            <label htmlFor="phoneNumber" className="block text-sm font-medium mb-1">
+              Phone number
+            </label>
+            <input
+              id="phoneNumber"
+              name="phoneNumber"
+              type="tel"
+              required
+              placeholder="10-digit mobile number"
+              className="w-full border border-gray-300 rounded-md px-3 py-2"
+            />
+          </div>
+
+          <div>
             <label htmlFor="password" className="block text-sm font-medium mb-1">
               Password
             </label>

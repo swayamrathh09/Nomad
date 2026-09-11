@@ -7,9 +7,13 @@ import { redirect } from "next/navigation";
 export async function signup(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
+  const phoneNumber = formData.get("phoneNumber") as string;
 
   if (!email || !password) {
     return { error: "Email and password are required." };
+  }
+  if (!phoneNumber) {
+    return { error: "Phone number is required." };
   }
 
   const supabase = await createClient();
@@ -28,6 +32,7 @@ export async function signup(formData: FormData) {
     data: {
       id: data.user.id,
       email: data.user.email!,
+      phoneNumber,
     },
   });
 

@@ -53,10 +53,6 @@ export default async function PayPage({
               <span>₹{(hotelCostScaled / 100).toLocaleString("en-IN")}</span>
             </div>
             <div className="flex justify-between">
-              <span>Local transport (sightseeing)</span>
-              <span>₹{(localTransportPaise / 100).toLocaleString("en-IN")}</span>
-            </div>
-            <div className="flex justify-between">
               <span>Entries & activities</span>
               <span>₹{(entriesCostPaise / 100).toLocaleString("en-IN")}</span>
             </div>
